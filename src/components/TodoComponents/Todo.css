@@ -1,0 +1,7 @@
+.item {
+    margin: 10px 0;
+}
+
+.item completed{
+    text-decoration: line-through;
+}

@@ -24,11 +24,16 @@ class App extends React.Component {
     this.state = {Todos: Todos};
   }
   
-  toggleComplete = (e) => {
-    console.log(e.currentTarget.id)
-    
+  clearCompleted = () => {
+    console.log('hi')
+    this.setState(this.state.Todos.filter(item => item.completed === false))
   }
 
+  toggleComplete = (e) => {
+    console.log(e.currentTarget.id)
+    this.setState(this.state.Todos.map(item => item.id === e.currentTarget.id ? {name: item.name, id: item.id, completed: !item.completed} : console.log(item.id)))
+  }
+ //
   addNewItem = (newItemText) => {
       const newItem = {
         name: newItemText,
@@ -57,7 +62,7 @@ class App extends React.Component {
       <div>
         <h2>Welcome to your Todo App!</h2>
         <TodoForm handleSubmit={this.handleSubmit} handleChanges={this.handleChanges}  />
-        <TodoList todolist={this.state.Todos} toggleComplete={this.toggleComplete} />
+        <TodoList todolist={this.state.Todos} toggleComplete={this.toggleComplete} clearCompleted={this.clearCompleted} />
       </div>
     );
   }

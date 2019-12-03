@@ -9,7 +9,7 @@ class TodoList extends React.Component {
             {this.props.todolist.map(item => (
                 <Todo key={item.id} item={item} toggleComplete={this.props.toggleComplete} />
             ))}
-            <button onClick={this.props.clearComplete}>Clear Complete</button>
+            <button onClick={this.props.clearCompleted}>Clear Complete</button>
             </div>
         )
     }

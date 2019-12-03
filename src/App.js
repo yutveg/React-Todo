@@ -26,14 +26,28 @@ class App extends React.Component {
   
   clearCompleted = () => {
     console.log('hi')
-    this.setState(this.state.Todos.filter(item => item.completed === false))
+    this.setState({
+      Todos: this.state.Todos.filter(item => item.completed === false)
+    })
   }
 
-  toggleComplete = (e) => {
-    console.log(e.currentTarget.id)
-    this.setState(this.state.Todos.map(item => item.id === e.currentTarget.id ? {name: item.name, id: item.id, completed: !item.completed} : console.log(item.id)))
+  toggleComplete = (id) => {
+    // console.log(id)
+
+    this.setState({
+      Todos: this.state.Todos.map(item => {
+        if (item.id === id){
+          console.log(item)
+          return {...item,
+          completed: !item.completed
+        }}
+        else {
+          console.log(item)
+          return item;
+        }
+    })})
+    
   }
- //
   addNewItem = (newItemText) => {
       const newItem = {
         name: newItemText,

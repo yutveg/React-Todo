@@ -3,6 +3,6 @@
     color: red;
 }
 
-.item-completed{
+.item.completed{
     text-decoration: line-through;
 }
